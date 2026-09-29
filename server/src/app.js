@@ -1,14 +1,4 @@
-// import express from "express";
 
-// const app=express()
-
-// app.get("/",(req,res)=>{
-//     res.json({message:"bana ;iya yanaha bhi"})
-// })
-// app.use("/api/auth",authRoute)
-
-
-// export default app;
 
 import express from "express";
 import authRoute from "./module/auth/auth.routes.js";

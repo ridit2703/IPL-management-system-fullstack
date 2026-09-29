@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const ownerSchema=new mongoose.Schema({
+const userSchema=new mongoose.Schema({
     id:{
         type:Number,
         unique:true,
@@ -10,7 +10,7 @@ const ownerSchema=new mongoose.Schema({
         type:String,
         unique:true,
         trim:true,
-        required:[true,"Owner name required"],
+        required:[true,"User name required"],
         minlenght:2,
         maxlength:35
 
@@ -20,6 +20,7 @@ const ownerSchema=new mongoose.Schema({
         required:true,
         unique:true,
         trim:true,
+        required:[true,"email is required"]
         
     },
     password:{
@@ -27,10 +28,15 @@ const ownerSchema=new mongoose.Schema({
         required:true,
         unique:true,
         trim:true,
+        required:[true,"password is required"],
+        select:false
         
     },
-    role:["admin","owner","player","user"]
+    role:{
+        enum:["admin","owner","player","user"],
+        default:"user"
+    }
 
 },{timestamps:true})
 
-export default mongoose.model("Owner",ownerSchema)
+export default mongoose.model("User",userSchema)

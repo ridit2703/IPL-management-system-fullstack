@@ -12,4 +12,8 @@ const register=async(req,res)=>{
 
 
 }
+
+constlogin=async(req,res)=>{
+    const {user,accessToken,refreshToken}=await authService.login(req.body)
+}
 export {register} 

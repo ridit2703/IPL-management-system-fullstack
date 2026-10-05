@@ -1,11 +1,11 @@
 import mongoose from "mongoose"
 
 const userSchema=new mongoose.Schema({
-    id:{
-        type:Number,
-        unique:true,
+    // id:{
+    //     type:Number,
+    //     unique:true,
 
-    },
+    // },
     name:{
         type:String,
         unique:true,

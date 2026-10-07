@@ -2,6 +2,7 @@
 import User from "./auth.model.js";
 import ApiError from "../../common/utils/api-error.js";
 import crypto from "crypto"
+import { generateAccessToken,generateRefreshToken } from "../../common/utils/jwt.utils.js";
 
 
 const hashToken=(token)=>{
@@ -60,5 +61,13 @@ const login=async({email,password})=>{
     refreshToken
    }
 }
+const logout = async (userId) => {
 
-export {register}
+    await User.findByIdAndUpdate(
+        userId,
+        { refreshToken: null }
+    );
+
+};
+
+export {register,login,logout}

@@ -1,16 +1,28 @@
 import mongoose from "mongoose";
 
 let teamSchema=new mongoose.Schema({
-    id:{
-        type:String,
-        required:true,
-        unique:true
-    },
+   
     name:{
         type:String,
         required:true,
-        unique:true
+        unique:true,
+        triem:true
     },
+    shortName:{
+        type:String,
+        required :true,
+        uppercase:true,
+        trim:true,
+        unique:true
+
+    },
+    logo:{
+        type:String,
+        required:true,
+
+    },
+
+
 
 },{timestamps:true})
 

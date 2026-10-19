@@ -1,7 +1,7 @@
 import ApiError from "../../common/utils/api-error.js";
 import Team from "./team.model.js";
 
-const createTeam = async (name, shortName, logo) => {
+const createTeam = async ({name, shortName, logo}) => {
   const normalizedName = name.trim();
   const normalizedShortName = shortName.trim().toUpperCase();
 

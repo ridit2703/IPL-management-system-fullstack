@@ -1,6 +1,14 @@
 import ApiError from "../../common/utils/api-error.js";
 import Team from "./team.model.js";
 
+
+
+const getAllTeams=async()=>{
+  const teams=await Team.find().sort({name:1});
+  return teams
+}
+
+
 const createTeam = async ({name, shortName, logo}) => {
   const normalizedName = name.trim();
   const normalizedShortName = shortName.trim().toUpperCase();
@@ -27,4 +35,4 @@ const createTeam = async ({name, shortName, logo}) => {
   return team;
 };
 
-export { createTeam };
+export {getAllTeams, createTeam };

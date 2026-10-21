@@ -8,3 +8,4 @@ class CreateTeamDto extends BaseDto{
         logo: Joi.string().trim().uri().required()
     }).required();
 }
+export default CreateTeamDto

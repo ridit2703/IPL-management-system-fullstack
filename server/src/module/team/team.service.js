@@ -5,6 +5,8 @@ import Team from "./team.model.js";
 
 const getAllTeams=async()=>{
   const teams=await Team.find().sort({name:1});
+
+  console.log(teams)
   return teams
 }
 
@@ -35,4 +37,26 @@ const createTeam = async ({name, shortName, logo}) => {
   return team;
 };
 
-export {getAllTeams, createTeam };
+const updateTeam=async(id,data)=>{
+  const team=await Team.findOneAndUpdate(id)
+
+  if(!team){
+    throw ApiError.notFound("Team not Found");
+  }
+
+  if(data.name!==undefined){
+    team.name=data.name.trim()
+  }
+
+  if (data.shortName !== undefined) {
+        team.shortName = data.shortName.trim().toUpperCase();
+    }
+
+    if (data.logo !== undefined) {
+        team.logo = data.logo.trim();
+    }
+    await team.save()
+    return team;
+}
+
+export {getAllTeams, createTeam ,updateTeam};

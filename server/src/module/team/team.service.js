@@ -59,4 +59,17 @@ const updateTeam=async(id,data)=>{
     return team;
 }
 
-export {getAllTeams, createTeam ,updateTeam};
+
+const deleteTeam = async (id) => {
+    const team = await Team.findById(id);
+
+    if (!team) {
+        throw ApiError.notFound("Team not found");
+    }
+
+    await Team.findByIdAndDelete(id);
+    console.log(team)
+
+    return team;
+};
+export {getAllTeams, createTeam ,updateTeam,deleteTeam};

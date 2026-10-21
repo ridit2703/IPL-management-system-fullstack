@@ -37,4 +37,18 @@ const updateTeamController=async(req,res)=>{
         
     }
 }
-export {getAllTeamsController,createTeamController,updateTeamController}
+
+const deleteTeamController = async (req, res, ) => {
+    try {
+        const team = await teamService.deleteTeam(req.params.id);
+
+        return ApiResponse.success(
+            res,
+            "Team Deleted Successfully",
+            team
+        );
+    } catch (error) {
+        
+    }
+};
+export {getAllTeamsController,createTeamController,updateTeamController,deleteTeamController}

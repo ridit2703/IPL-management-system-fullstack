@@ -45,4 +45,59 @@ const createPlayer = async (data) => {
     return player;
 };
 
-export { createPlayer };
+const getAllPlayers = async () => {
+  const players = await Player.find()
+    .populate("team", "name shortName logo")
+    .sort({ name: 1 });
+
+  return players;
+};
+const updatePlayer = async (id, data) => {
+  if (!mongoose.isValidObjectId(id)) {
+    throw ApiError.badRequest("Invalid player ID");
+  }
+
+  // If a new team ID is provided, check that the team exists.
+  if (data.team) {
+    if (!mongoose.isValidObjectId(data.team)) {
+      throw ApiError.badRequest("Invalid team ID");
+    }
+
+    const existingTeam = await Team.findById(data.team);
+
+    if (!existingTeam) {
+      throw ApiError.notFound("Team not found");
+    }
+  }
+ const player = await Player.findByIdAndUpdate(
+    id,
+    { $set: data },
+    {
+      new: true,
+      runValidators: true
+    }
+  ).populate("team", "name shortName logo");
+
+  if (!player) {
+    throw ApiError.notFound("Player not found");
+  }
+
+  return player;
+};
+
+const deletePlayer = async (id) => {
+  if (!mongoose.isValidObjectId(id)) {
+    throw ApiError.badRequest("Invalid player ID");
+  }
+
+  const player = await Player.findByIdAndDelete(id);
+
+  if (!player) {
+    throw ApiError.notFound("Player not found");
+  }
+
+  return player;
+};
+export { createPlayer,getAllPlayers,
+  updatePlayer,
+  deletePlayer };

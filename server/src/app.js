@@ -13,10 +13,7 @@ app.get("/", (req, res) => {
     res.json({ message: "bana liya yahan bhi" });
 });
 
-app.use((req, res, next) => {
-  console.log("Incoming request:", req.method, req.url);
-  next();
-});
+
 
 app.use("/api/auth", authRoute);
 app.use("/api/teams",teamRoute);

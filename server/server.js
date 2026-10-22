@@ -2,6 +2,8 @@ import express from "express";
 import "dotenv/config"
 import app from "./src/app.js"
 import { connectDB } from "./src/common/config/db.js";
+//import playerRoutes from "./modules/player/player.routes.js";
+
 
 const start=async()=>{
     try{

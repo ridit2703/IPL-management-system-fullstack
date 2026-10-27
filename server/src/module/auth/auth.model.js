@@ -1,55 +1,113 @@
-import mongoose from "mongoose"
-import bcrypt from "bcrypt"
+// import mongoose from "mongoose"
+// import bcrypt from "bcrypt"
  
-const userSchema=new mongoose.Schema({
-    // id:{
-    //     type:Number,
-    //     unique:true,
+// const userSchema=new mongoose.Schema({
+//     // id:{
+//     //     type:Number,
+//     //     unique:true,
 
-    // },
-    name:{
-        type:String,
-        unique:true,
-        trim:true,
-        required:[true,"User name required"],
-        minlenght:2,
-        maxlength:35
+//     // },
+//     name:{
+//         type:String,
+//         unique:true,
+//         trim:true,
+//         required:[true,"User name required"],
+//         minlenght:2,
+//         maxlength:35
 
-    },
-    email:{
-        type:String,
-        required:true,
-        unique:true,
-        trim:true,
-        required:[true,"email is required"]
+//     },
+//     email:{
+//         type:String,
+//         required:true,
+//         unique:true,
+//         trim:true,
+//         required:[true,"email is required"]
         
-    },
-    password:{
-        type:String,
-        required:true,
-        unique:true,
-        trim:true,
-        required:[true,"password is required"],
-        select:false
+//     },
+//     password:{
+//         type:String,
+//         required:true,
+//         unique:true,
+//         trim:true,
+//         required:[true,"password is required"],
+//         select:false
         
-    },
-    role:{
-        type:String,
-        enum:["admin","owner","player","user"],
-        default:"user"
-    }
+//     },
+//     role:{
+//         type:String,
+//         enum:["admin","owner","player","user"],
+//         default:"user"
+//     }
 
-},{timestamps:true})
+// },{timestamps:true})
+
+// userSchema.pre("save", async function () {
+//     if (!this.isModified("password")) return ;
+
+//     this.password = await bcrypt.hash(this.password, 10);
+    
+// });
+
+// userSchema.methods.comparePassword=async function(clearTextPassword){
+//     return bcrypt.compare(clearTextPassword,this.password)
+// }
+
+// export default mongoose.model("User",userSchema)
+
+
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      trim: true,
+      required: [true, "User name required"],
+      minlength: 2,
+      maxlength: 35,
+    },
+
+    email: {
+      type: String,
+      required: [true, "Email is required"],
+      unique: true,
+      trim: true,
+      lowercase: true,
+    },
+
+    password: {
+      type: String,
+      required: [true, "Password is required"],
+      trim: true,
+      select: false,
+    },
+
+    role: {
+      type: String,
+      enum: ["admin", "owner", "player", "user"],
+      default: "user",
+    },
+
+    team: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Team",
+      default: null,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 userSchema.pre("save", async function () {
-    if (!this.isModified("password")) return ;
+  if (!this.isModified("password")) return;
 
-    this.password = await bcrypt.hash(this.password, 10);
-    
+  this.password = await bcrypt.hash(this.password, 10);
 });
 
-userSchema.methods.comparePassword=async function(clearTextPassword){
-    return bcrypt.compare(clearTextPassword,this.password)
-}
+userSchema.methods.comparePassword = async function (clearTextPassword) {
+  return bcrypt.compare(clearTextPassword, this.password);
+};
 
-export default mongoose.model("User",userSchema)
+export default mongoose.model("User", userSchema);

@@ -4,8 +4,15 @@ import express from "express";
 import authRoute from "./module/auth/auth.routes.js";
 import teamRoute from "./module/team/team.routes.js"
 import playerRoute from "./module/player/player.routes.js";
-
+import cors from "cors";
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 

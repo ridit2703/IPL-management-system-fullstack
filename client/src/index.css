@@ -142,3 +142,23 @@ code {
   display: inline-block;
   margin-top: 12px;
 }
+
+.team-details {
+  padding: 30px;
+}
+
+.team-details-card {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+}
+
+.team-details-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}

@@ -8,6 +8,8 @@ import ProtectedRoute from "./ProtectedRoute";
 import RoleRoute from "./RoleRoute";
 
 import Teams from "../features/team/pages/Teams";
+import TeamDetails from "../features/team/pages/TeamDetails";
+
 
 function AppRoutes() {
   return (
@@ -21,6 +23,8 @@ function AppRoutes() {
         <Route path="/dashboard" element={<Dashboard />} />
 
         <Route path="/teams" element={<Teams />} />
+        <Route path="/teams/:id" element={<TeamDetails />} />
+
 
         <Route element={<RoleRoute allowedRoles={["owner"]} />}>
           <Route path="/owner/profile" element={<div>Owner Profile</div>} />

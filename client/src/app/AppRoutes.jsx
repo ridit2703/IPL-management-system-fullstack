@@ -7,6 +7,8 @@ import Dashboard from "../features/dashboard/pages/Dashboard";
 import ProtectedRoute from "./ProtectedRoute";
 import RoleRoute from "./RoleRoute";
 
+import Teams from "../features/team/pages/Teams";
+
 function AppRoutes() {
   return (
     <Routes>
@@ -17,6 +19,8 @@ function AppRoutes() {
 
       <Route element={<ProtectedRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route path="/teams" element={<Teams />} />
 
         <Route element={<RoleRoute allowedRoles={["owner"]} />}>
           <Route path="/owner/profile" element={<div>Owner Profile</div>} />

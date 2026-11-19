@@ -104,7 +104,7 @@ code,
 }
 
 code {
-  font-size: 15px;
+  font-size: 18px;
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
@@ -122,6 +122,7 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   margin-top: 24px;
+  margin-bottom:20px
 }
 
 .team-card {
@@ -130,6 +131,7 @@ code {
   border-radius: 12px;
   text-align: center;
   background: white;
+  
 }
 
 .team-logo {
@@ -161,4 +163,5 @@ code {
   width: 150px;
   height: 150px;
   object-fit: contain;
+  
 }

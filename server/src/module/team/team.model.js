@@ -6,7 +6,7 @@ let teamSchema=new mongoose.Schema({
         type:String,
         required:true,
         unique:true,
-        triem:true
+        trim:true
     },
     shortName:{
         type:String,

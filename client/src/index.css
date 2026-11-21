@@ -165,3 +165,51 @@ code {
   object-fit: contain;
   
 }
+
+.create-team-page {
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 25px;
+}
+
+.team-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+}
+
+.team-form label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+.team-form input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.team-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #173b70;
+  color: white;
+  cursor: pointer;
+}
+
+.team-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: red;
+}

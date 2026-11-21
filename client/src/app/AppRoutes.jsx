@@ -9,7 +9,7 @@ import RoleRoute from "./RoleRoute";
 
 import Teams from "../features/team/pages/Teams";
 import TeamDetails from "../features/team/pages/TeamDetails";
-
+import CreateTeam from "../features/team/pages/CreateTeam";
 
 function AppRoutes() {
   return (
@@ -29,10 +29,13 @@ function AppRoutes() {
         <Route element={<RoleRoute allowedRoles={["owner"]} />}>
           <Route path="/owner/profile" element={<div>Owner Profile</div>} />
           <Route path="/owner/my-team" element={<div>My Team</div>} />
+
         </Route>
 
         <Route element={<RoleRoute allowedRoles={["admin"]} />}>
           <Route path="/admin" element={<div>Admin Dashboard</div>} />
+
+          <Route path="/teams/create" element={<CreateTeam />} />
         </Route>
 
         <Route element={<RoleRoute allowedRoles={["player"]} />}>

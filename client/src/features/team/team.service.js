@@ -8,3 +8,10 @@ export function getAllTeams() {
 export function getTeamById(id) {
   return apiRequest(`/teams/${id}`);
 }
+
+export function createTeam(teamData) {
+  return apiRequest("/teams/create", {
+    method: "POST",
+    body: teamData,
+  });
+}

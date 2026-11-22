@@ -67,4 +67,3 @@ function TeamCard({ team, isAdmin, onDelete }) {
 }
 
 export default TeamCard;
-

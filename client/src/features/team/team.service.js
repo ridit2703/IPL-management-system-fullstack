@@ -1,17 +1,35 @@
 
+
 import { apiRequest } from "../../lib/api-client";
 
-export function getAllTeams() {
-  return apiRequest("/teams");
-}
+const BASE_URL = "/teams";
 
-export function getTeamById(id) {
-  return apiRequest(`/teams/${id}`);
-}
+export const getAllTeams = async () => {
+  return apiRequest(BASE_URL);
+};
 
-export function createTeam(teamData) {
-  return apiRequest("/teams/create", {
+export const getTeamById = async (id) => {
+  return apiRequest(`${BASE_URL}/${id}`);
+};
+
+export const createTeam = async (data) => {
+  return apiRequest(`${BASE_URL}/create`, {
     method: "POST",
-    body: teamData,
+    body: data,
   });
-}
+};
+
+export const updateTeam = async (id, data) => {
+  return apiRequest(`${BASE_URL}/${id}`, {
+    method: "PATCH",
+    body: data,
+  });
+};
+
+export const deleteTeam = async (id) => {
+  return apiRequest(`${BASE_URL}/${id}`, {
+    method: "DELETE",
+  });
+};
+
+

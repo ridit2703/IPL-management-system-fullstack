@@ -1,0 +1,173 @@
+
+/* Teams listing */
+
+.teams-page {
+  padding: 30px;
+}
+
+.teams-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.teams-header h1 {
+  margin-bottom: 5px;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+/* Team card */
+
+.team-card {
+  padding: 22px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+  text-align: center;
+  color: #222;
+}
+
+.team-card-main {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.team-card-main h2 {
+  font-size: 19px;
+  margin: 12px 0 5px;
+}
+
+.team-card-main p {
+  color: #666;
+}
+
+.team-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.team-card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.team-card-actions a,
+.team-card-actions button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Team details */
+
+.team-details {
+  padding: 30px;
+}
+
+.team-details-card {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+}
+
+.team-details-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+/* Create and edit forms */
+
+.team-form-page {
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 25px;
+}
+
+.team-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.primary-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #173b70;
+  color: white;
+  cursor: pointer;
+}
+
+.primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.edit-btn {
+  background: #e8eef8;
+  color: #173b70;
+}
+
+.delete-btn {
+  border: none;
+  background: #fde8e8;
+  color: #b42318;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #173b70;
+  text-decoration: none;
+}
+
+.form-error {
+  color: #b42318;
+  margin: 10px 0;
+}
+
+@media (max-width: 600px) {
+  .teams-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .teams-page {
+    padding: 18px;
+  }
+}

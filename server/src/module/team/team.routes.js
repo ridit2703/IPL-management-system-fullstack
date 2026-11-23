@@ -14,5 +14,5 @@ router.post("/create",validate(CreateTeamDto),createTeamController);
 
 router.patch("/:id",validate(updateTeamDto),updateTeamController);
 
-router.delete("/:id", deleteTeamController);
+router.delete("/:id", deleteTeamController );
 export default router;

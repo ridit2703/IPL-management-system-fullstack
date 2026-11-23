@@ -114,6 +114,10 @@ function Teams() {
 
   if (loading) return <p>Loading teams...</p>;
 
+
+  
+
+
   return (
     <div className="teams-page">
       <div className="teams-header">

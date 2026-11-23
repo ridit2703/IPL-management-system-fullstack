@@ -74,13 +74,25 @@ function Teams() {
       try {
         setError("");
 
-        const data = await getAllTeams();
+        // const data = await getAllTeams();
 
-        if (!Array.isArray(data)) {
+        // if (!Array.isArray(data)) {
+        //   throw new Error("Invalid teams response from server");
+        // }
+
+        // setTeams(data);
+
+        const response = await getAllTeams();
+
+        console.log("Teams response:", response);
+
+        const teamsData = response.data;
+
+        if (!Array.isArray(teamsData)) {
           throw new Error("Invalid teams response from server");
         }
 
-        setTeams(data);
+        setTeams(teamsData);
       } catch (error) {
         setError(error.message || "Failed to fetch teams");
       } finally {
@@ -115,7 +127,7 @@ function Teams() {
   if (loading) return <p>Loading teams...</p>;
 
 
-  
+
 
 
   return (

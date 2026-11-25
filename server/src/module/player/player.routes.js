@@ -8,6 +8,7 @@ import UpdatePlayerDto from "./dto/update-player.dto.js";
 import {
   createPlayerController,
   getAllPlayersController,
+  getPlayerByIdController,
   updatePlayerController,
   deletePlayerController
 } from "./player.controller.js";
@@ -16,6 +17,10 @@ const router = Router();
 
 // GET all players
 router.get("/", getAllPlayersController);
+
+
+// GET player by ID
+router.get("/:id", getPlayerByIdController);
 
 // CREATE player
 router.post(

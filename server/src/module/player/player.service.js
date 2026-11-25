@@ -98,6 +98,20 @@ const deletePlayer = async (id) => {
 
   return player;
 };
-export { createPlayer,getAllPlayers,
+const getPlayerById = async (id) => {
+  if (!mongoose.isValidObjectId(id)) {
+    throw ApiError.badRequest("Invalid player ID");
+  }
+
+  const player = await Player.findById(id)
+    .populate("team", "name shortName logo");
+
+  if (!player) {
+    throw ApiError.notFound("Player not found");
+  }
+
+  return player;
+};
+export { createPlayer,getAllPlayers,getPlayerById,
   updatePlayer,
   deletePlayer };

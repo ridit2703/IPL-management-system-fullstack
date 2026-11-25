@@ -12,7 +12,7 @@ import TeamDetails from "../features/team/pages/TeamDetails";
 import CreateTeam from "../features/team/pages/CreateTeam";
 import EditTeam from "../features/team/pages/EditTeam";
 
-
+import Players from "../features/player/pages/Players";
 
 function AppRoutes() {
   return (
@@ -44,6 +44,9 @@ function AppRoutes() {
 
         <Route element={<RoleRoute allowedRoles={["player"]} />}>
           <Route path="/player/profile" element={<div>Player Profile</div>} />
+          <Route path="/players" element={<Players />} />
+
+
         </Route>
       </Route>
 
